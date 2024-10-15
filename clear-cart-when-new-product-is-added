@@ -1,0 +1,5 @@
+function only_one_product_in_cart( $cart_item_data, $product_id ) {
+    WC()->cart->empty_cart(); // Empty the cart when a new product is added
+    return $cart_item_data; // Proceed to add the new product to the cart
+}
+add_filter( 'woocommerce_add_cart_item_data', 'only_one_product_in_cart', 10, 2 );
